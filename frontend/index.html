@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleAI — Personalized Recommendation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">✦ StyleAI</div>
+    <nav><a href="#">Home</a><a href="#">Login</a></nav>
+</header>
+
+<main>
+    <section class="page-head">
+        <h1>Find Your Perfect Outfit</h1>
+        <p>Upload your photo and tell us what you want to wear.</p>
+    </section>
+
+    <section class="workspace">
+        <div class="panel photo-panel">
+            <h2>Your Photo</h2>
+            <label class="dropzone" for="imageInput" id="dropzone">
+                <img id="preview" alt="Selected photo preview" hidden>
+                <div id="uploadPlaceholder">
+                    <div class="big-icon">📷</div>
+                    <strong>Click to upload your photo</strong>
+                    <span>PNG, JPG, JPEG or WEBP · Max 10 MB</span>
+                </div>
+            </label>
+            <input type="file" id="imageInput" accept="image/png,image/jpeg,image/webp" hidden>
+        </div>
+
+        <div class="panel">
+            <h2>Choose Your Style</h2>
+            <form id="recommendationForm">
+                <label for="occasion">Occasion</label>
+                <select id="occasion" required>
+                    <option value="">Select occasion</option>
+                    <option value="College">College</option>
+                    <option value="Casual">Casual</option>
+                    <option value="Party">Party</option>
+                    <option value="Formal">Formal</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Office">Office</option>
+                </select>
+
+                <label>Outfit Type</label>
+                <div class="choices" id="outfitChoices">
+                    <button type="button" class="choice" data-value="T-Shirt">🟢 T-Shirt</button>
+                    <button type="button" class="choice" data-value="Shirt">👔 Shirt</button>
+                    <button type="button" class="choice" data-value="Jacket">🧥 Jacket</button>
+                    <button type="button" class="choice" data-value="Jeans">👖 Jeans</button>
+                    <button type="button" class="choice" data-value="Traditional">👗 Traditional</button>
+                    <button type="button" class="choice" data-value="Formal">🕴️ Formal</button>
+                </div>
+                <input id="outfitType" type="hidden" required>
+
+                <label for="color">Preferred Color</label>
+                <select id="color" required>
+                    <option value="">Select color</option>
+                    <option>White</option><option>Black</option><option>Blue</option>
+                    <option>Red</option><option>Green</option><option>Beige</option>
+                    <option>Grey</option><option>Pink</option>
+                </select>
+
+                <button class="generate" id="generateBtn" type="submit">✨ Get AI Recommendation</button>
+                <p class="status" id="status"></p>
+            </form>
+        </div>
+    </section>
+
+    <section class="result" id="result" hidden>
+        <div class="result-header">
+            <div><span>✨ AI RESULT</span><h2 id="resultTitle">Your Recommendation</h2></div>
+            <button type="button" class="secondary" id="startOver">Start Over</button>
+        </div>
+        <div class="result-photo"><img id="resultImage" alt="Uploaded photo used for this recommendation" hidden></div>
+        <div class="result-grid">
+            <div class="result-card"><h3>👕 Outfit</h3><p id="resultOutfit"></p></div>
+            <div class="result-card"><h3>🎨 Color</h3><p id="resultColor"></p></div>
+            <div class="result-card"><h3>📅 Occasion</h3><p id="resultOccasion"></p></div>
+            <div class="result-card"><h3>⌚ Accessories</h3><p id="resultAccessories"></p></div>
+        </div>
+        <div class="summary" id="resultSummary"></div>
+        <div class="next-step"><h3>➡️ Next Step</h3><p id="resultNextStep"></p></div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
